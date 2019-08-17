@@ -1,0 +1,7 @@
+spec:
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: ${project.artifactId}
+  host: rest-database.192.168.1.232.nip.io

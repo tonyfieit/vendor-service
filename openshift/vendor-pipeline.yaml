@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: List
+metadata: {}
+items:
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+      pipeline.alpha.openshift.io/uses: '[{"name": "vendor", "namespace": "", "kind": "DeploymentConfig"}]'
+    name: vendor-service-pipeline
+  spec:
+    source:
+      git:
+        ref: pipeline
+        uri: https://github.com/tonyfieit/vendor-service.git
+      type: Git
+    strategy:
+      type: JenkinsPipeline
+      jenkinsPipelineStrategy:
+        jenkinsfilePath: Jenkinsfile
+    triggers:
+    - generic:
+        secret: FiArdDBH
+      type: Generic
+
