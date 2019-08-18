@@ -1,17 +1,15 @@
 node{
-  stage ('Build') {
- 
-    git url: "https://github.com/tonyfieit/vendor-service.git"
- 
-    withMaven(maven: 'maven-3', mavenSettingsConfig: 'my-maven-settings') {
- 
-      // Run the maven build
-     sh "mvn package"
-     stash name:"jar", includes:"target/vendor-service-1.0.jar"
- 
-    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs & SpotBugs reports...
-  }
-  stage('Test') {
+stage('Build') {
+withMaven(
+  mavenSettingsConfig: 'b91be174-fd2f-4cf4-9b77-071607082b7a', jdk: jdk.toString(), maven: 'Maven 3.3.9', mavenOpts: '-Xmx2048m') {
+   // Run the maven build
+   //  sh "mvn package"
+    // stash name:"jar", includes:"target/vendor-service-1.0.jar"
+    sh 'mvn clean package'
+    stash name:"jar", includes:"target/vendor-service-1.0.jar"
+      }
+}
+stage('Test') {
     parallel(
       "Vendor Tests": {
         sh "mvn verify -P vendor-tests"
