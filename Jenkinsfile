@@ -1,7 +1,7 @@
 node{
 stage('Build') {
 withMaven(
-  mavenSettingsConfig: 'b91be174-fd2f-4cf4-9b77-071607082b7a', jdk: jdk.toString(), maven: 'Maven 3.3.9', mavenOpts: '-Xmx2048m') {
+  mavenSettingsConfig: 'b91be174-fd2f-4cf4-9b77-071607082b7a', maven: 'Maven 3.3.9', mavenOpts: '-Xmx2048m') {
    // Run the maven build
    //  sh "mvn package"
     // stash name:"jar", includes:"target/vendor-service-1.0.jar"
