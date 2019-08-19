@@ -24,8 +24,8 @@
 		<fabric8.skipResourceValidation>true</fabric8.skipResourceValidation>
 	</properties>
 	
-	 <repositories>
-        	<repository>
+    <repositories>
+        <repository>
           <id>jboss-ga-repository</id>
           <url>http://maven.repository.redhat.com/techpreview/all</url>
           <releases>
