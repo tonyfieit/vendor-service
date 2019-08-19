@@ -23,6 +23,27 @@
 
 		<fabric8.skipResourceValidation>true</fabric8.skipResourceValidation>
 	</properties>
+	
+	 <repositories>
+      <repository>
+        <id>redhat-ga</id>
+        <url>http://maven.repository.redhat.com/techpreview/all</url
+      </repository>
+	 
+	<repository>
+          <id>jboss-ga-repository</id>
+          <url>http://maven.repository.redhat.com/techpreview/all</url>
+          <releases>
+            <enabled>true</enabled>
+          <updatePolicy>daily</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          <updatePolicy>daily</updatePolicy>
+          </snapshots>
+        </repository>
+    </repositories>
+	
 
 	<dependencyManagement>
 		<dependencies>
